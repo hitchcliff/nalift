@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nalift/screens/splash_screen.dart';
+import 'package:nalift/theme/theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -7,11 +9,11 @@ void main() {
     MyApp(
       child: MaterialApp(
         title: 'NALIFT',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        ),
+        themeMode: ThemeMode.system,
+        theme: MyAppTheme.lightTheme,
+        darkTheme: MyAppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
-        home: Scaffold(appBar: AppBar(title: Text("Hello world"))),
+        home: MySplashScreen(),
       ),
     ),
   );
