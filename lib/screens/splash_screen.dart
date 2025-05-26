@@ -39,7 +39,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
           children: [
             Flexible(
               child: Image(
-                width: MyHelpers.screenWidth(context, .5),
+                width: MyHelpers.screenWidth(context, .25),
                 image: AssetImage(MyAssets.rocketImg),
               ),
             ),
