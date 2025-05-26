@@ -44,7 +44,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
                 image: AssetImage(MyAssets.rocketImg),
               ),
             ),
-            BodyText("Launching now..."),
+            CircularProgressIndicator(),
           ].gap(height: MySizes.spaceBtwItems),
         ),
       ),
