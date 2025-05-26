@@ -1,5 +1,5 @@
 name: nalift
-description: "need a lift?"
+description: "need a lift? booking application"
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
@@ -10,8 +10,14 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Icons
   cupertino_icons: ^1.0.8
+
+  # Text Utils
   readmore: ^3.0.0
+
+  # State management
+  get: ^4.7.2
 
 dev_dependencies:
   flutter_test:

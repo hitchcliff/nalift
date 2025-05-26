@@ -6,6 +6,7 @@ import 'package:nalift/constants/assets.dart';
 import 'package:nalift/constants/sizes.dart';
 import 'package:nalift/extensions/list_space_between.dart';
 import 'package:nalift/helpers/helpers.dart';
+import 'package:nalift/screens/login_screen.dart';
 import 'package:nalift/screens/main_screen.dart';
 
 class MySplashScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class MySplashScreen extends StatefulWidget {
 class _MySplashScreenState extends State<MySplashScreen> {
   startTimer() {
     Timer(const Duration(seconds: 3), () async {
-      Navigator.push(context, MaterialPageRoute(builder: (c) => MainScreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (c) => LoginScreen()));
     });
   }
 
