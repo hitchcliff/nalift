@@ -7,14 +7,8 @@ class MyOutlineButtonTheme {
     style: OutlinedButton.styleFrom(
       elevation: 0,
       foregroundColor: MyColors.primary,
-      textStyle: const TextStyle(
-        fontSize: MySizes.fontSizeMd,
-        fontWeight: FontWeight.w600,
-      ),
-      padding: const EdgeInsets.symmetric(
-        vertical: MySizes.buttonHeight,
-        horizontal: MySizes.defaultSpace,
-      ),
+      textStyle: const TextStyle(fontWeight: FontWeight.w700),
+      padding: const EdgeInsets.symmetric(vertical: MySizes.buttonHeight),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(MySizes.buttonRadius),
       ),
@@ -26,14 +20,8 @@ class MyOutlineButtonTheme {
     style: OutlinedButton.styleFrom(
       elevation: 0,
       foregroundColor: MyColors.white,
-      textStyle: const TextStyle(
-        fontSize: MySizes.fontSizeMd,
-        fontWeight: FontWeight.w600,
-      ),
-      padding: const EdgeInsets.symmetric(
-        vertical: MySizes.buttonHeight,
-        horizontal: MySizes.defaultSpace,
-      ),
+      textStyle: const TextStyle(fontWeight: FontWeight.w700),
+      padding: const EdgeInsets.symmetric(vertical: MySizes.buttonHeight),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(MySizes.buttonRadius),
       ),

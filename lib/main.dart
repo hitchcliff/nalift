@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nalift/screens/splash_screen.dart';
 import 'package:nalift/theme/theme.dart';
 
@@ -6,14 +7,16 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(
-    MyApp(
-      child: MaterialApp(
-        title: 'NALIFT',
-        themeMode: ThemeMode.system,
-        theme: MyAppTheme.lightTheme,
-        darkTheme: MyAppTheme.darkTheme,
-        debugShowCheckedModeBanner: false,
-        home: MySplashScreen(),
+    ProviderScope(
+      child: MyApp(
+        child: MaterialApp(
+          title: 'NALIFT',
+          themeMode: ThemeMode.system,
+          theme: MyAppTheme.lightTheme,
+          darkTheme: MyAppTheme.darkTheme,
+          debugShowCheckedModeBanner: false,
+          home: MySplashScreen(),
+        ),
       ),
     ),
   );
