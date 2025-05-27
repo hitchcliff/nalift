@@ -1,4 +1,4 @@
-# NALIFT App E-commerce store
+# NALIFT App (Uber/Grab/OLA)
 
 ## Description
 
@@ -38,8 +38,6 @@ Need a lift (NALIF) app is a full-functionality UBER/GRAB app built with Flutter
 - [x] OnBoarding Single Time Appearance (Local Storage)
 - [x] Register User & Email Verification
 - [x] Login using Email & Password
-- [N/A] GOOGLE SIGN-IN
-- [N/A] FACEBOOK SIGN-IN
 - [x] Forget Password & Reset Password
 
 ## Contact
