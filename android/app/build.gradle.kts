@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.nalift"
+    namespace = "com.kevin.nalift"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
