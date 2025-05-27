@@ -27,4 +27,8 @@ class RegisterNotifier extends StateNotifier<RegisterModel> {
   void updateConfirmPassword(String payload) {
     state = state.copyWith(confirmPassword: payload);
   }
+
+  void updateAccountType(String payload) {
+    state = state.copyWith(accountType: payload.toLowerCase());
+  }
 }

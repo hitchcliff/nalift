@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nalift/components/texts/body_text.dart';
 import 'package:nalift/constants/sizes.dart';
 import 'package:nalift/extensions/list_space_between.dart';
+import 'package:nalift/models/user_model.dart';
 import 'package:nalift/providers/register_provider.dart';
-import 'package:nalift/screens/login_screen.dart';
 import 'package:nalift/utils/icons.dart';
 
 class RegisterForm extends ConsumerWidget {
@@ -28,6 +28,23 @@ class RegisterForm extends ConsumerWidget {
             onChanged: (value) => register.updatePhone(value),
             keyboardType: TextInputType.phone,
             decoration: InputDecoration(label: BodyText("Enter phone number")),
+          ),
+          DropdownButtonFormField(
+            decoration: InputDecoration(labelText: "Account type"),
+            items:
+                ["Driver", "Passenger"]
+                    .map(
+                      (option) => DropdownMenuItem(
+                        value: option,
+                        child: BodyText(option),
+                      ),
+                    )
+                    .toList(),
+            onChanged: (value) {
+              register.updateAccountType(
+                value ?? UserAccountType.passenger.toString(),
+              );
+            },
           ),
           TextFormField(
             onChanged: (value) => register.updatePassword(value),

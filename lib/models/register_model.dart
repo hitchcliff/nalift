@@ -6,6 +6,7 @@ class RegisterModel extends UserModel {
     required super.name,
     required super.email,
     required super.phone,
+    required super.accountType,
     required this.password,
     required this.confirmPassword,
     required this.registerFormKey,
@@ -26,6 +27,7 @@ class RegisterModel extends UserModel {
     String? confirmPassword,
     GlobalKey<FormState>? registerFormKey,
     bool? obscureText,
+    String? accountType,
   }) => RegisterModel(
     name: name ?? this.name,
     email: email ?? this.email,
@@ -34,6 +36,7 @@ class RegisterModel extends UserModel {
     confirmPassword: confirmPassword ?? this.confirmPassword,
     registerFormKey: registerFormKey ?? this.registerFormKey,
     obscureText: obscureText ?? this.obscureText,
+    accountType: accountType ?? this.accountType,
   );
 
   /// Empty function
@@ -43,6 +46,7 @@ class RegisterModel extends UserModel {
     phone: "",
     password: "",
     confirmPassword: "",
+    accountType: "Passenger",
     registerFormKey: GlobalKey<FormState>(),
     obscureText: true,
   );
