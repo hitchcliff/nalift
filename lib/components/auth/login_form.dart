@@ -4,7 +4,7 @@ import 'package:nalift/components/texts/body_text.dart';
 import 'package:nalift/constants/sizes.dart';
 import 'package:nalift/extensions/list_space_between.dart';
 import 'package:nalift/providers/login_provider.dart';
-import 'package:nalift/screens/main_screen.dart';
+import 'package:nalift/screens/register_screen.dart';
 import 'package:nalift/utils/icons.dart';
 
 class LoginForm extends ConsumerWidget {
@@ -12,7 +12,6 @@ class LoginForm extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final email = ref.watch(emailProvider);
     final provider = ref.watch(loginProvider);
 
     return Form(
@@ -76,7 +75,12 @@ class LoginForm extends ConsumerWidget {
           SizedBox(
             width: double.infinity,
             child: OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (c) => RegisterScreen()),
+                );
+              },
               child: const Text("Register now"),
             ),
           ),

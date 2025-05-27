@@ -6,7 +6,10 @@ import 'package:nalift/constants/sizes.dart';
 import 'package:nalift/extensions/list_space_between.dart';
 
 class Header extends StatelessWidget {
-  const Header({super.key});
+  const Header({super.key, required this.titleText, required this.labelText});
+
+  final String titleText;
+  final String labelText;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,7 @@ class Header extends StatelessWidget {
         Image(height: 50, image: AssetImage(MyAssets.rocketImg)),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [TitleText("Login"), LabelText("Please fill up the form")],
+          children: [TitleText(titleText), LabelText(labelText)],
         ),
       ].gap(height: MySizes.spaceBtwItems),
     );

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nalift/components/auth/header.dart';
-import 'package:nalift/components/auth/login_form.dart';
+import 'package:nalift/components/auth/register_form.dart';
 import 'package:nalift/constants/sizes.dart';
 import 'package:nalift/extensions/list_space_between.dart';
 import 'package:nalift/helpers/helpers.dart';
 
-class LoginScreen extends ConsumerWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends ConsumerWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -22,10 +22,10 @@ class LoginScreen extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Header(
-                  titleText: "Login",
-                  labelText: "Please fill up the form",
+                  titleText: "Register here",
+                  labelText: 'Please fill up the form',
                 ),
-                const LoginForm(),
+                const RegisterForm(),
               ].gap(height: MySizes.spaceBtwSections),
             ),
           ),
