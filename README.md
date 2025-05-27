@@ -12,9 +12,6 @@ Need a lift (NALIF) app is a full-functionality UBER/GRAB app built with Flutter
 - [x] 🎨 **UI DESIGN**  
        Engaging designs with responsive layouts.
 
-- [x] 🔐 **Firebase Auth**  
-       Secure sign-ins with email, Google, and Facebook.
-
 - [x] 💻 **Backend with Firebase**  
        Uses Firestore for data and Cloud Storage for files.
 
