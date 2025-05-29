@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nalift/components/texts/body_text.dart';
 import 'package:nalift/constants/sizes.dart';
 import 'package:nalift/extensions/list_space_between.dart';
+import 'package:nalift/helpers/validator.dart';
 import 'package:nalift/providers/login_provider.dart';
 import 'package:nalift/screens/register_screen.dart';
 import 'package:nalift/utils/icons.dart';
@@ -13,6 +14,7 @@ class LoginForm extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final provider = ref.watch(loginProvider);
+    final login = ref.read(loginProvider.notifier);
 
     return Form(
       key: provider.loginFormKey,
@@ -21,10 +23,13 @@ class LoginForm extends ConsumerWidget {
         children: [
           TextFormField(
             controller: provider.email,
+            validator: (value) => Validator.validateEmptyText("Email", value),
             decoration: InputDecoration(label: BodyText("Enter email")),
           ),
           TextFormField(
             controller: provider.password,
+            validator:
+                (value) => Validator.validateEmptyText("Password", value),
             obscureText: provider.obscureText,
             decoration: InputDecoration(
               label: BodyText("Password"),
@@ -33,9 +38,7 @@ class LoginForm extends ConsumerWidget {
                   provider.obscureText ? MyIcons.eyeSlash : MyIcons.eyeSolid,
                 ),
                 onPressed: () {
-                  ref
-                      .read(loginProvider.notifier)
-                      .toggleObscureText(!provider.obscureText);
+                  login.toggleObscureText(!provider.obscureText);
                 },
               ),
             ),
@@ -68,7 +71,10 @@ class LoginForm extends ConsumerWidget {
           // Sign in
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton(onPressed: () => {}, child: Text("Login")),
+            child: ElevatedButton(
+              onPressed: login.submit,
+              child: Text("Login"),
+            ),
           ),
 
           // create account btn

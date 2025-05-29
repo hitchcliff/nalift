@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nalift/models/login_model.dart';
+import 'package:nalift/controllers/login_controller.dart';
 import 'package:nalift/notifiers/login_notifier.dart';
 
 /// Read only
@@ -14,6 +14,6 @@ import 'package:nalift/notifiers/login_notifier.dart';
 // ref.read(emailProvider.notifier).update((state) => value);
 
 /// Read and write complex state objects/arrays
-final loginProvider = StateNotifierProvider<LoginNotifier, LoginModel>(
-  (ref) => LoginNotifier(LoginModel.empty()),
+final loginProvider = StateNotifierProvider<LoginNotifier, LoginController>(
+  (ref) => LoginNotifier(LoginController.empty()),
 );

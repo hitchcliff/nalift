@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-@immutable
-class LoginModel {
-  const LoginModel({
+class LoginController {
+  LoginController({
     required this.obscureText,
     required this.email,
     required this.password,
@@ -10,21 +9,22 @@ class LoginModel {
     required this.rememberMe,
   });
 
-  // final TextEditingController email = TextEditingController();
-  final bool obscureText;
   final TextEditingController email;
   final TextEditingController password;
-  final GlobalKey<FormState> loginFormKey;
-  final bool rememberMe;
 
-  LoginModel copyWith({
+  bool obscureText;
+  bool rememberMe;
+  final GlobalKey<FormState> loginFormKey;
+
+  /// Copy with to handle updating the state
+  LoginController copyWith({
     bool? obscureText,
     TextEditingController? email,
     TextEditingController? password,
     GlobalKey<FormState>? loginFormKey,
     bool? rememberMe,
   }) {
-    return LoginModel(
+    return LoginController(
       obscureText: obscureText ?? this.obscureText,
       email: email ?? this.email,
       password: password ?? this.password,
@@ -33,13 +33,14 @@ class LoginModel {
     );
   }
 
-  static LoginModel empty() {
-    return LoginModel(
-      obscureText: true,
+  /// Empty function
+  static LoginController empty() {
+    return LoginController(
       email: TextEditingController(),
       password: TextEditingController(),
-      loginFormKey: GlobalKey<FormState>(),
       rememberMe: false,
+      obscureText: true,
+      loginFormKey: GlobalKey<FormState>(),
     );
   }
 }
