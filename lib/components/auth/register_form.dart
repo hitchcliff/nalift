@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nalift/components/texts/body_text.dart';
 import 'package:nalift/constants/sizes.dart';
 import 'package:nalift/extensions/list_space_between.dart';
+import 'package:nalift/helpers/validator.dart';
 import 'package:nalift/models/user_model.dart';
 import 'package:nalift/providers/register_provider.dart';
 import 'package:nalift/utils/icons.dart';
@@ -21,11 +22,18 @@ class RegisterForm extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextFormField(
-            onChanged: (value) => register.updateEmail(value),
+            controller: provider.name,
+            validator: (value) => Validator.validateEmptyText("Name", value),
+            decoration: InputDecoration(label: BodyText("Your Name")),
+          ),
+          TextFormField(
+            controller: provider.email,
+            validator: (value) => Validator.validateEmail(value),
             decoration: InputDecoration(label: BodyText("Enter email")),
           ),
           TextFormField(
-            onChanged: (value) => register.updatePhone(value),
+            controller: provider.phone,
+            validator: (value) => Validator.validatePhoneNumber(value),
             keyboardType: TextInputType.phone,
             decoration: InputDecoration(label: BodyText("Enter phone number")),
           ),
@@ -42,12 +50,15 @@ class RegisterForm extends ConsumerWidget {
                     .toList(),
             onChanged: (value) {
               register.updateAccountType(
-                value ?? UserAccountType.passenger.toString(),
+                value == "Driver"
+                    ? UserAccountType.driver
+                    : UserAccountType.passenger,
               );
             },
           ),
           TextFormField(
-            onChanged: (value) => register.updatePassword(value),
+            controller: provider.password,
+            validator: (value) => Validator.validatePassword(value),
             obscureText: provider.obscureText,
             decoration: InputDecoration(
               label: BodyText("Password"),
@@ -62,7 +73,12 @@ class RegisterForm extends ConsumerWidget {
             ),
           ),
           TextFormField(
-            onChanged: (value) => register.updateConfirmPassword(value),
+            controller: provider.confirmPassword,
+            validator:
+                (value) => Validator.validateConfirmPassword(
+                  provider.password.text,
+                  value!,
+                ),
             obscureText: provider.obscureText,
             decoration: InputDecoration(label: BodyText("Confirm Password")),
           ),
@@ -71,10 +87,7 @@ class RegisterForm extends ConsumerWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed:
-                  () => {
-                    // handle register
-                  },
+              onPressed: register.submit,
               child: Text("Register now"),
             ),
           ),

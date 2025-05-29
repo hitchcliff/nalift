@@ -1,34 +1,25 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nalift/models/register_model.dart';
+import 'package:nalift/controllers/register_controller.dart';
+import 'package:nalift/models/user_model.dart';
 
-class RegisterNotifier extends StateNotifier<RegisterModel> {
+class RegisterNotifier extends StateNotifier<RegisterController> {
   RegisterNotifier(super.state);
 
   void toggleObscureText(bool payload) {
     state = state.copyWith(obscureText: payload);
   }
 
-  void updateName(String payload) {
-    state = state.copyWith(name: payload);
+  void updateAccountType(UserAccountType payload) {
+    state = state.copyWith(accountType: payload);
   }
 
-  void updateEmail(String payload) {
-    state = state.copyWith(email: payload);
-  }
+  void submit() {
+    print("USER SUBMIT: ${state.name.text} ${state.accountType}");
 
-  void updatePhone(String payload) {
-    state = state.copyWith(phone: payload);
-  }
+    // Validate form
+    if (!state.registerFormKey.currentState!.validate()) return;
 
-  void updatePassword(String payload) {
-    state = state.copyWith(password: payload);
-  }
-
-  void updateConfirmPassword(String payload) {
-    state = state.copyWith(confirmPassword: payload);
-  }
-
-  void updateAccountType(String payload) {
-    state = state.copyWith(accountType: payload.toLowerCase());
+    // Put inside UserModel
+    // Submit in Repository
   }
 }
