@@ -12,11 +12,23 @@ class LoginNotifier extends StateNotifier<LoginController> {
     state = state.copyWith(rememberMe: payload);
   }
 
+  void toggleLoading(bool payload) {
+    state = state.copyWith(loading: payload);
+  }
+
   void submit() {
-    print("LOGIN USER SUBMIT: ${state.email.text}");
+    // print("LOGIN USER SUBMIT: ${state.email.text}");
+
+    // Update Loading
+    toggleLoading(true);
 
     // Validate form
-    if (!state.loginFormKey.currentState!.validate()) return;
+    if (!state.loginFormKey.currentState!.validate()) {
+      // toggleLoading(false);
+      return;
+    }
+
+    // Show dialog
 
     // Put inside UserModel
     // Submit in Repository

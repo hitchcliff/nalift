@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nalift/components/texts/body_text.dart';
+import 'package:nalift/components/widgets/progress_dialog.dart';
 import 'package:nalift/constants/sizes.dart';
 import 'package:nalift/extensions/list_space_between.dart';
 import 'package:nalift/helpers/validator.dart';
@@ -15,6 +16,17 @@ class LoginForm extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final provider = ref.watch(loginProvider);
     final login = ref.read(loginProvider.notifier);
+
+    handleSubmit() {
+      login.submit();
+
+      showDialog(
+        context: context,
+        // barrierDismissible: false,
+        builder:
+            (context) => ProgressDialog(message: "Logging in, please wait..."),
+      );
+    }
 
     return Form(
       key: provider.loginFormKey,
@@ -72,7 +84,7 @@ class LoginForm extends ConsumerWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: login.submit,
+              onPressed: handleSubmit,
               child: Text("Login"),
             ),
           ),

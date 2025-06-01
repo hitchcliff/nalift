@@ -7,6 +7,7 @@ class LoginController {
     required this.password,
     required this.loginFormKey,
     required this.rememberMe,
+    required this.loading,
   });
 
   final TextEditingController email;
@@ -15,6 +16,7 @@ class LoginController {
   bool obscureText;
   bool rememberMe;
   final GlobalKey<FormState> loginFormKey;
+  bool loading;
 
   /// Copy with to handle updating the state
   LoginController copyWith({
@@ -23,6 +25,7 @@ class LoginController {
     TextEditingController? password,
     GlobalKey<FormState>? loginFormKey,
     bool? rememberMe,
+    bool? loading,
   }) {
     return LoginController(
       obscureText: obscureText ?? this.obscureText,
@@ -30,6 +33,7 @@ class LoginController {
       password: password ?? this.password,
       loginFormKey: loginFormKey ?? this.loginFormKey,
       rememberMe: rememberMe ?? this.rememberMe,
+      loading: loading ?? false,
     );
   }
 
@@ -41,6 +45,7 @@ class LoginController {
       rememberMe: false,
       obscureText: true,
       loginFormKey: GlobalKey<FormState>(),
+      loading: false,
     );
   }
 }
