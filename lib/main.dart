@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nalift/firebase_options.dart';
 import 'package:nalift/screens/splash_screen.dart';
+import 'package:nalift/services/navigation_service.dart';
 import 'package:nalift/theme/theme.dart';
 
 void main() async {
@@ -18,6 +19,7 @@ void main() async {
           theme: MyAppTheme.lightTheme,
           darkTheme: MyAppTheme.darkTheme,
           debugShowCheckedModeBanner: false,
+          navigatorKey: NavigationService.navigatorKey,
           home: MySplashScreen(),
         ),
       ),

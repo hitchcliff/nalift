@@ -28,6 +28,10 @@ dependencies:
   firebase_auth: ^5.5.4
   firebase_database: ^11.3.6
 
+  # Toaster
+  fluttertoast: ^8.2.12
+  cloud_firestore: ^5.6.8
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

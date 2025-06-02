@@ -11,6 +11,8 @@ class RegisterController {
     required this.registerFormKey,
     required this.obscureText,
     required this.accountType,
+    required this.loading,
+    required this.privacyPolicy,
   });
 
   TextEditingController name = TextEditingController();
@@ -22,6 +24,8 @@ class RegisterController {
 
   bool obscureText;
   final GlobalKey<FormState> registerFormKey;
+  bool loading;
+  bool privacyPolicy;
 
   /// Copy with
   RegisterController copyWith({
@@ -32,6 +36,8 @@ class RegisterController {
     TextEditingController? confirmPassword,
     UserAccountType? accountType,
     bool? obscureText,
+    bool? loading,
+    bool? privacyPolicy,
   }) => RegisterController(
     name: name ?? this.name,
     email: email ?? this.email,
@@ -41,6 +47,8 @@ class RegisterController {
     accountType: accountType ?? UserAccountType.passenger,
     obscureText: obscureText ?? this.obscureText,
     registerFormKey: registerFormKey,
+    loading: loading ?? false,
+    privacyPolicy: privacyPolicy == true ? true : false,
   );
 
   /// Empty function
@@ -53,5 +61,7 @@ class RegisterController {
     accountType: UserAccountType.passenger,
     registerFormKey: GlobalKey<FormState>(),
     obscureText: true,
+    loading: false,
+    privacyPolicy: false,
   );
 }

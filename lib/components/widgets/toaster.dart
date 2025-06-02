@@ -10,6 +10,8 @@ class Toaster {
     final snackBar = SnackBar(
       content: BodyText(msg, color: MyColors.white),
       backgroundColor: MyColors.googleColor,
+      showCloseIcon: true,
+      duration: Duration(minutes: 1),
     );
     ScaffoldMessenger.of(NavigationService().context!).showSnackBar(snackBar);
   }

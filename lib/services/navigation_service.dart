@@ -13,4 +13,8 @@ class NavigationService {
     );
     return true;
   }
+
+  push(Widget page) {
+    Navigator.push(context!, MaterialPageRoute(builder: (context) => page));
+  }
 }
