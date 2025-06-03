@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nalift/repository/auth_repository.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class ProfileScreen extends ConsumerWidget {
+  const ProfileScreen({super.key});
 
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final AuthRepository authRepository = AuthRepository();
 
-class _ProfileScreenState extends State<ProfileScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text("Profile page"));
+    return Column(
+      children: [
+        Center(child: Text("Profile page")),
+        ElevatedButton(
+          onPressed: () {
+            authRepository.logout();
+          },
+          child: Text("Logout"),
+        ),
+      ],
+    );
   }
 }

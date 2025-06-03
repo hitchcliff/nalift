@@ -6,6 +6,7 @@ import 'package:nalift/constants/sizes.dart';
 import 'package:nalift/extensions/list_space_between.dart';
 import 'package:nalift/helpers/validator.dart';
 import 'package:nalift/providers/login_provider.dart';
+import 'package:nalift/routes/routes.dart';
 import 'package:nalift/screens/register_screen.dart';
 import 'package:nalift/utils/icons.dart';
 
@@ -22,7 +23,7 @@ class LoginForm extends ConsumerWidget {
 
       showDialog(
         context: context,
-        // barrierDismissible: false,
+        barrierDismissible: false,
         builder:
             (context) => ProgressDialog(message: "Logging in, please wait..."),
       );
@@ -94,10 +95,7 @@ class LoginForm extends ConsumerWidget {
             width: double.infinity,
             child: OutlinedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (c) => RegisterScreen()),
-                );
+                Navigator.pushNamed(context, Routes.registerScreen);
               },
               child: const Text("Register now"),
             ),

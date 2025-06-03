@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nalift/firebase_options.dart';
-import 'package:nalift/repository/auth_repository.dart';
+import 'package:nalift/routes/routes.dart';
 import 'package:nalift/screens/splash_screen.dart';
 import 'package:nalift/services/navigation_service.dart';
 import 'package:nalift/theme/theme.dart';
@@ -24,6 +24,8 @@ void main() async {
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigationService.navigatorKey,
           home: MySplashScreen(),
+          initialRoute: Routes.initialRoute,
+          routes: Routes.screens,
         ),
       ),
     ),

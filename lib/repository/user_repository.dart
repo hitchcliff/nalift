@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nalift/constants/db_collections.dart';
 import 'package:nalift/models/user_model.dart';
+import 'package:nalift/repository/auth_repository.dart';
 
 class UserRepository {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
-  // final AuthRepository _authRepository = AuthRepository.instance;
+  final AuthRepository _authRepository = AuthRepository();
   // final FirebaseStorage _storage = FirebaseStorage.instance;
 
   /// Create user
@@ -50,17 +51,17 @@ class UserRepository {
   //   }
   // }
 
-  // /// Delete user
-  // Future<void> delete() async {
-  //   try {
-  //     await _db
-  //         .collection(MyDBCollections.users)
-  //         .doc(_authRepository.authUser!.uid)
-  //         .delete();
-  //   } catch (e) {
-  //     throw e.toString();
-  //   }
-  // }
+  /// Delete user
+  Future<void> delete() async {
+    try {
+      await _db
+          .collection(MyDbCollections.users)
+          .doc(_authRepository.authUser!.uid)
+          .delete();
+    } catch (e) {
+      throw e.toString();
+    }
+  }
 
   // /// Upload any image
   // Future<String> uploadImage(String path, XFile image) async {

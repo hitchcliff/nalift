@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nalift/components/widgets/toaster.dart';
@@ -7,8 +5,7 @@ import 'package:nalift/controllers/register_controller.dart';
 import 'package:nalift/models/user_model.dart';
 import 'package:nalift/repository/auth_repository.dart';
 import 'package:nalift/repository/user_repository.dart';
-import 'package:nalift/screens/home_screen.dart';
-import 'package:nalift/screens/main_screen.dart';
+import 'package:nalift/routes/routes.dart';
 import 'package:nalift/services/navigation_service.dart';
 
 class RegisterNotifier extends StateNotifier<RegisterController> {
@@ -70,11 +67,7 @@ class RegisterNotifier extends StateNotifier<RegisterController> {
       Toaster().success('Registered succesfully!');
 
       // Redirect user
-      _navigationService.push(MainScreen());
-      // Navigator.push(
-      //   _navigationService.context!,
-      //   MaterialPageRoute(builder: (context) => MainScreen()),
-      // );
+      Navigator.pushNamed(_navigationService.context!, Routes.mainScreen);
     } catch (e) {
       Toaster().error(e.toString());
       await NavigationService().pop(1);

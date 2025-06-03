@@ -6,7 +6,6 @@ import 'package:nalift/constants/sizes.dart';
 import 'package:nalift/extensions/list_space_between.dart';
 import 'package:nalift/helpers/helpers.dart';
 import 'package:nalift/repository/auth_repository.dart';
-import 'package:nalift/screens/login_screen.dart';
 
 class MySplashScreen extends StatefulWidget {
   const MySplashScreen({super.key});
@@ -20,7 +19,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
   final AuthRepository _authRepository = AuthRepository();
 
   startTimer() {
-    Timer(const Duration(seconds: 3), () async {
+    Timer(const Duration(seconds: 1), () async {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (c) => _authRepository.checkAuthExist()),
