@@ -16,8 +16,6 @@ class UserModel {
   final String accountType;
 
   static UserModel fromJSON(data) {
-    print("UserModel: $data");
-
     return UserModel(
       id: data['id'],
       name: data['name'],

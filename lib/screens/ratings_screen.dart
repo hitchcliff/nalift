@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class RatingsScreen extends StatefulWidget {
-  const RatingsScreen({Key? key}) : super(key: key);
+class RatingsScreen extends ConsumerWidget {
+  const RatingsScreen({super.key});
 
   @override
-  _RatingsScreenState createState() => _RatingsScreenState();
-}
-
-class _RatingsScreenState extends State<RatingsScreen> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Center(child: Text("Ratings page"));
   }
 }

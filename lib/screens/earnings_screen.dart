@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class EarningsScreen extends StatefulWidget {
-  const EarningsScreen({Key? key}) : super(key: key);
+class EarningsScreen extends ConsumerWidget {
+  const EarningsScreen({super.key});
 
   @override
-  _EarningsScreenState createState() => _EarningsScreenState();
-}
-
-class _EarningsScreenState extends State<EarningsScreen> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Center(child: Text("Earnings page"));
   }
 }

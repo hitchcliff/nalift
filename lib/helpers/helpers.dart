@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nalift/helpers/isDarkMode.dart';
-import 'package:nalift/helpers/screenHeight.dart';
-import 'package:nalift/helpers/screenWidth.dart';
+import 'package:nalift/helpers/is_dark_mode.dart';
+import 'package:nalift/helpers/screen_height.dart';
+import 'package:nalift/helpers/screen_width.dart';
 import 'package:nalift/helpers/text_color.dart';
 
 class MyHelpers {

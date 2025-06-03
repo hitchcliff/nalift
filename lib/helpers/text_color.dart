@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nalift/constants/colors.dart';
-import 'package:nalift/helpers/isDarkMode.dart';
+import 'package:nalift/helpers/is_dark_mode.dart';
 
 enum TextColor { reverse }
 

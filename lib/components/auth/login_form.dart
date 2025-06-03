@@ -7,7 +7,6 @@ import 'package:nalift/extensions/list_space_between.dart';
 import 'package:nalift/helpers/validator.dart';
 import 'package:nalift/providers/login_provider.dart';
 import 'package:nalift/routes/routes.dart';
-import 'package:nalift/screens/register_screen.dart';
 import 'package:nalift/utils/icons.dart';
 
 class LoginForm extends ConsumerWidget {
