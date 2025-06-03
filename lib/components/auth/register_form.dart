@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:nalift/components/texts/body_text.dart';
 import 'package:nalift/components/widgets/privacy_policy_checkbox.dart';
 import 'package:nalift/components/widgets/progress_dialog.dart';

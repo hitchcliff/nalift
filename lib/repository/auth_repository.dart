@@ -54,7 +54,7 @@ class AuthRepository {
   logout() async {
     try {
       await _auth.signOut();
-      Navigator.popUntil(context!, (route) => route.isFirst);
+      Navigator.pushNamed(context!, Routes.initialRoute);
     } catch (e) {
       throw "Something went wrong ${e.toString}";
     }
