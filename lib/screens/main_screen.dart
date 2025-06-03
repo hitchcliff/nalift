@@ -38,14 +38,16 @@ class _MainScreenState extends State<MainScreen>
     bool isDarkMode = MyHelpers.isDarkMode(context);
 
     return Scaffold(
-      body: TabBarView(
-        controller: tabController,
-        children: [
-          HomeScreen(),
-          EarningsScreen(),
-          RatingsScreen(),
-          ProfileScreen(),
-        ],
+      body: SafeArea(
+        child: TabBarView(
+          controller: tabController,
+          children: [
+            HomeScreen(),
+            EarningsScreen(),
+            RatingsScreen(),
+            ProfileScreen(),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

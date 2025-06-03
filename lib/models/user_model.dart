@@ -15,16 +15,6 @@ class UserModel {
   final String phone;
   final String accountType;
 
-  static UserModel empty() {
-    return UserModel(
-      id: "",
-      name: "",
-      email: "",
-      phone: "",
-      accountType: UserAccountType.passenger.toString(),
-    );
-  }
-
   static UserModel fromJSON(data) {
     print("UserModel: $data");
 

@@ -5,6 +5,7 @@ import 'package:nalift/components/texts/body_text.dart';
 import 'package:nalift/components/widgets/privacy_policy_checkbox.dart';
 import 'package:nalift/components/widgets/progress_dialog.dart';
 import 'package:nalift/constants/sizes.dart';
+import 'package:nalift/extensions/capitalize.dart';
 import 'package:nalift/extensions/list_space_between.dart';
 import 'package:nalift/helpers/validator.dart';
 import 'package:nalift/models/user_model.dart';
@@ -54,20 +55,16 @@ class RegisterForm extends ConsumerWidget {
           DropdownButtonFormField(
             decoration: InputDecoration(labelText: "Account type"),
             items:
-                ["Driver", "Passenger"]
+                [UserAccountType.driver, UserAccountType.passenger]
                     .map(
                       (option) => DropdownMenuItem(
                         value: option,
-                        child: BodyText(option),
+                        child: BodyText(option.name.capitalize()),
                       ),
                     )
                     .toList(),
             onChanged: (value) {
-              register.updateAccountType(
-                value == "Driver"
-                    ? UserAccountType.driver
-                    : UserAccountType.passenger,
-              );
+              register.updateAccountType(value!);
             },
           ),
           TextFormField(

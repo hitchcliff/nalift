@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nalift/components/widgets/toaster.dart';
 import 'package:nalift/controllers/register_controller.dart';
@@ -5,6 +8,7 @@ import 'package:nalift/models/user_model.dart';
 import 'package:nalift/repository/auth_repository.dart';
 import 'package:nalift/repository/user_repository.dart';
 import 'package:nalift/screens/home_screen.dart';
+import 'package:nalift/screens/main_screen.dart';
 import 'package:nalift/services/navigation_service.dart';
 
 class RegisterNotifier extends StateNotifier<RegisterController> {
@@ -12,6 +16,7 @@ class RegisterNotifier extends StateNotifier<RegisterController> {
 
   final AuthRepository _authRepository = AuthRepository();
   final UserRepository _userRepository = UserRepository();
+  final NavigationService _navigationService = NavigationService();
 
   void toggleObscureText(bool payload) {
     state = state.copyWith(obscureText: payload);
@@ -37,6 +42,8 @@ class RegisterNotifier extends StateNotifier<RegisterController> {
       // Check privacy policy
       if (!state.privacyPolicy) {
         Toaster().error("Please agree to Privacy Policy and Terms of use");
+
+        await NavigationService().pop(1);
         return;
       }
 
@@ -52,23 +59,25 @@ class RegisterNotifier extends StateNotifier<RegisterController> {
         name: state.name.text.trim(),
         email: state.email.text.trim(),
         phone: state.phone.text.trim(),
-        accountType: state.accountType.toString(),
+        accountType: state.accountType.name,
       );
-
-      print(user);
 
       // Store in database
       await _userRepository.save(user);
 
       // Success
+      await NavigationService().pop(0);
       Toaster().success('Registered succesfully!');
 
       // Redirect user
-      NavigationService().push(HomeScreen());
+      _navigationService.push(MainScreen());
+      // Navigator.push(
+      //   _navigationService.context!,
+      //   MaterialPageRoute(builder: (context) => MainScreen()),
+      // );
     } catch (e) {
       Toaster().error(e.toString());
-    } finally {
-      await NavigationService().pop(0);
+      await NavigationService().pop(1);
     }
   }
 }
